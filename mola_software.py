@@ -57,8 +57,7 @@ class ImageFiller:
         self.stop_thread = False
         self.connected = False  # Sinalizador para indicar se a conexão foi estabelecida
         self.sprites = pygame.sprite.Group()  # Grupo de sprites
-        self.vertical_offset = 0  # Offset vertical ajustável
-
+        
         # Inicializar o Pygame
         pygame.init()
         pygame.mouse.set_visible(False)
@@ -67,12 +66,13 @@ class ImageFiller:
         # Detectar a resolução da tela
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)  # Tela cheia
         self.screen_info = pygame.display.Info()
-        self.rect_w = self.screen_info.current_w
-        self.rect_h = self.screen_info.current_h
+        self.rect_w = self.screen_info.current_w #NTSC 720
+        self.rect_h = self.screen_info.current_h #NTSC 480
 
         # Calcula o offset horizontal para centralizar os sprites
         self.offset = (self.rect_w - self.rect_h) // 2  # Considerando que a maior bounding box é 240x240
-
+        self.vertical_offset = 0  # Offset vertical ajustável
+        
         # Carregar a música
         pygame.mixer.music.load(music_file)
 
