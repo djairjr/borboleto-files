@@ -68,10 +68,6 @@ class ImageFiller:
         self.screen_info = pygame.display.Info()
         self.rect_w = self.screen_info.current_w #NTSC 720
         self.rect_h = self.screen_info.current_h #NTSC 480
-
-        # Calcula o offset horizontal para centralizar os sprites
-        self.offset = (self.rect_w - self.rect_h) // 2  # Considerando que a maior bounding box é 240x240
-        self.vertical_offset = 0  # Offset vertical ajustável
         
         # Carregar a música
         pygame.mixer.music.load(music_file)
@@ -223,7 +219,7 @@ class ImageFiller:
                 if pygame.mixer.music.get_busy():
                     pygame.mixer.music.stop()  # Parar música
 
-            clock.tick(self.fps)
+            time.sleep(self.intervalo)
 
     def display(self):
         """Função para exibir as imagens usando Pygame."""
@@ -263,7 +259,7 @@ class ImageFiller:
                 if pygame.mixer.music.get_busy():
                     pygame.mixer.music.stop()  # Parar música
 
-            clock.tick(self.fps)
+            time.sleep(self.intervalo)
 
         pygame.quit()
 
