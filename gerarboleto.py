@@ -58,7 +58,7 @@ def gerar_boletos(num_boletos, nome, endereco):
         d.cedente_documento = gerar_cpf()  # CPF do beneficiário
         d.sacado_nome = nome
         d.sacado_endereco = endereco.replace('\n', ', ')
-        d.sacado_documento = '205.101.488 40'
+        d.sacado_documento = 'Your Doc Here'
         # Gerar PDF
         pdf_filename = f'boleto_{i + 1}.pdf'
 
@@ -74,7 +74,7 @@ def gerar_boletos(num_boletos, nome, endereco):
             image.save(png_filename, 'PNG')
 
 # Defina seu nome e endereço aqui
-seu_nome = "Djair Guilherme da Silva Junior"
-seu_endereco = "Rua Próspero Cesarino Paoliello, 304 - Cj. Res Butantã - São Paulo - SP"
+seu_nome = "Your Name Here"
+seu_endereco = "Your Address Here"
 # Gerar 100 boletos
 gerar_boletos(100, seu_nome, seu_endereco)
